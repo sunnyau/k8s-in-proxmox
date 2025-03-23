@@ -75,10 +75,14 @@ nginx-example   1/1     Running   0          76s   10.244.3.2   k8s-node3   <non
 - To show nginx is working on k8s and can be connected on web browser
 - And it can be connected by any k8s-controller, k8s-node addresses
 
+```
 http://192.168.0.19:30080/
 http://192.168.0.22:30080/
 http://192.168.0.24:30080/
 http://192.168.0.27:30080/
+```
 
 ![image](https://github.com/user-attachments/assets/f564cb40-2cb8-422b-af5c-771dbce412da)
+
+Awesome !!
 
