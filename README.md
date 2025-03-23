@@ -2,7 +2,7 @@
 
 Here I have spinned up several VMs on my proxmox server and install k8s. Here is my spec.
 
-![Screenshot (87)](https://github.com/user-attachments/assets/4c7a794e-b226-4dff-805c-143ab48979cc)
+![Screenshot (88)](https://github.com/user-attachments/assets/1e0dd2ad-6332-4cac-b688-41a09d78f288)
 
 ```
 controller - 2 core. At least 2GB Ram ( 192.168.0.19 )
