@@ -11,7 +11,7 @@ node 2 - 2 core. At least 1GB Ram ( 192.168.0.24 )
 node 3 - 2 core. At least 1GB Ram ( 192.168.0.27 )
 ```
 
-## Tutorial I follow
+## The excellent tutorial I follow
 - https://www.youtube.com/watch?v=U1VzcjCB_sY&t=462s
 - https://www.learnlinux.tv/how-to-build-an-awesome-kubernetes-cluster-using-proxmox-virtual-environment/
 
@@ -24,9 +24,7 @@ curl -fsSL https://pkgs.k8s.io/core:/stable:/v1.28/deb/Release.key | sudo gpg --
 sudo apt update
 ```
 
-
-
-# useful kubectl commands
+## useful kubectl commands
 
 ```
 user@k8s-controller:~$ kubeadm token create --print-join-command
@@ -50,7 +48,34 @@ nginx-example   1/1     Running   0          14s
 ```
 
 ```
+user@k8s-controller:~$ kubectl apply -f pod.yml
+pod/nginx-example created
+
+user@k8s-controller:~$ kubectl apply -f service-nodeport.yml
+service/nginx-example created
+
+user@k8s-controller:~$ kubectl get service
+NAME            TYPE        CLUSTER-IP     EXTERNAL-IP   PORT(S)        AGE
+kubernetes      ClusterIP   10.96.0.1      <none>        443/TCP        38m
+nginx-example   NodePort    10.99.12.144   <none>        80:30080/TCP   13s
+user@k8s-controller:~$
+```
+
+```
 user@k8s-controller:~$ kubectl get pods -o wide
 NAME            READY   STATUS    RESTARTS   AGE   IP           NODE        NOMINATED NODE   READINESS GATES
 nginx-example   1/1     Running   0          76s   10.244.3.2   k8s-node3   <none>           <none>
 ```
+
+## nginx on browser
+
+- To show nginx is working on k8s and can be connected on web browser
+- And it can be connected by any k8s-controller, k8s-node addresses
+
+http://192.168.0.19:30080/
+http://192.168.0.22:30080/
+http://192.168.0.24:30080/
+http://192.168.0.27:30080/
+
+![image](https://github.com/user-attachments/assets/f564cb40-2cb8-422b-af5c-771dbce412da)
+
